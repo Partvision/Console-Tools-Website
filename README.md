@@ -2,4 +2,4 @@
 
 ## https://partvision.github.io/Console-Tools-Website/
 
-Some tools may not function at all.
+This library is experimental — tools are beta and may change. Drag-to-bookmarks is a beta feature.
