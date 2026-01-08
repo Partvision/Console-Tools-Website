@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Console Tools</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <div style="background:#ffdf5d;color:#222;padding:6px 10px;border-radius:8px;font-weight:700;font-size:12px;box-shadow:0 4px 12px rgba(0,0,0,.06);">BETA</div>
+            <div style="color:#6b6f73;font-size:0.95rem;">This library is experimental — tools are beta and may change. Drag-to-bookmarks is a beta feature.</div>
+        </div>
+        <h1>Console Tools</h1>
+        <p class="subtitle">Copy and paste these scripts into your browser console</p>
+
+        <div class="search-row" style="margin-bottom:12px;display:flex;gap:8px;align-items:center;">
+            <input id="tool-search" placeholder="Search tools (name, description)..." style="flex:1;padding:10px;border-radius:6px;border:1px solid #e3e5e6;background:var(--panel);font-family:inherit;">
+            <button id="clear-search" style="padding:8px 10px;border-radius:6px;border:1px solid var(--outline);background:transparent;cursor:pointer;">Clear</button>
+        </div>
+        
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h3>Color Picker</h3>
+                <p>Click any color on a webpage to get its hex code</p>
+                <button class="copy-button" data-tool="colorPicker">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+            
+            <div class="tool-card">
+                <h3>Font Inspector</h3>
+                <p>Click any text to see its font family, size, and weight</p>
+                <button class="copy-button" data-tool="fontInspector">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+            
+            <div class="tool-card">
+                <h3>Layout Debugger</h3>
+                <p>Outline all elements to debug layout issues</p>
+                <button class="copy-button" data-tool="layoutDebugger">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+            
+            <div class="tool-card">
+                <h3>Image Info</h3>
+                <p>Click any image to see its dimensions and file size</p>
+                <button class="copy-button" data-tool="imageInfo">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+            
+            <div class="tool-card">
+                <h3>CSS Editor</h3>
+                <p>Live edit CSS styles on any webpage</p>
+                <button class="copy-button" data-tool="cssEditor">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+            
+            <div class="tool-card">
+                <h3>Word Count</h3>
+                <p>Count words, characters, and reading time on any page</p>
+                <button class="copy-button" data-tool="wordCount">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Scroll To Top Button</h3>
+                <p>Add a floating button to quickly scroll back to the top</p>
+                <button class="copy-button" data-tool="scrollToTop">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Dark Mode Toggle</h3>
+                <p>Toggle a simple dark mode overlay on any site</p>
+                <button class="copy-button" data-tool="darkModeToggle">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Debug Grid</h3>
+                <p>Overlay a grid to align and debug layouts</p>
+                <button class="copy-button" data-tool="debugGrid">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Link Checker</h3>
+                <p>Highlight links that look broken or suspicious</p>
+                <button class="copy-button" data-tool="linkChecker">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Heading Map</h3>
+                <p>Show a clickable outline of all headings on the page</p>
+                <button class="copy-button" data-tool="headingMap">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Clean Print</h3>
+                <p>Simplify the page for cleaner printing and reading</p>
+                <button class="copy-button" data-tool="cleanPrint">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Form Filler</h3>
+                <p>Auto-fill text inputs and textareas with sample data</p>
+                <button class="copy-button" data-tool="formFiller">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Focus Mode</h3>
+                <p>Dim everything except the main content area</p>
+                <button class="copy-button" data-tool="focusMode">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Draggable Notes</h3>
+                <p>Add a draggable sticky note pad that saves per site</p>
+                <button class="copy-button" data-tool="notePad">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Accessibility Checker</h3>
+                <p>Highlight elements missing alt, labels, or with poor contrast</p>
+                <button class="copy-button" data-tool="accessibilityChecker">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <!-- QoL additions -->
+            <div class="tool-card">
+                <h3>Clipboard History</h3>
+                <p>Capture recent clipboard entries and paste from history</p>
+                <button class="copy-button" data-tool="clipboardHistory">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Timer / Pomodoro</h3>
+                <p>Start a quick timer or Pomodoro with alerts</p>
+                <button class="copy-button" data-tool="timer">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Palette Generator</h3>
+                <p>Generate and copy color palettes from an image or seed color</p>
+                <button class="copy-button" data-tool="paletteGenerator">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Lorem Ipsum (quick)</h3>
+                <p>Insert sample paragraphs into focused textareas or clipboard</p>
+                <button class="copy-button" data-tool="loremIpsum">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Ruler / Measure</h3>
+                <p>Overlay a draggable ruler to measure page elements in px</p>
+                <button class="copy-button" data-tool="ruler">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Performance Timings</h3>
+                <p>Show basic page timing metrics and resource counts</p>
+                <button class="copy-button" data-tool="perfTimings">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Element Resizer</h3>
+                <p>Click any element to drag-resize it visually (for prototyping)</p>
+                <button class="copy-button" data-tool="elementResizer">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>HTML Speedhack</h3>
+                <p>Reduce animations, speed up videos and animations for fast walkthroughs</p>
+                <button class="copy-button" data-tool="htmlSpeedHack">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>FPS Counter</h3>
+                <p>Show a lightweight frames-per-second overlay</p>
+                <button class="copy-button" data-tool="fpsCounter">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Module Browser</h3>
+                <p>Quickly inspect scripts on the page and run snippets</p>
+                <button class="copy-button" data-tool="moduleBrowser">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Developer Tools (Lite)</h3>
+                <p>Small dev panel: inspect, outline, and quick DOM actions</p>
+                <button class="copy-button" data-tool="devTools">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Basic Calculator</h3>
+                <p>Draggable simple calculator for quick arithmetic</p>
+                <button class="copy-button" data-tool="basicCalculator">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>Graphing Calculator</h3>
+                <p>Draggable mini graphing calculator — plot y = f(x) quickly</p>
+                <button class="copy-button" data-tool="graphCalc">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+
+            <div class="tool-card">
+                <h3>GUI Macro Creator</h3>
+                <p>Record clicks & typing, play back, save, and export simple bookmarklet macros</p>
+                <button class="copy-button" data-tool="macroCreator">Copy Script</button>
+                <pre class="script-preview"></pre>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h2>How to Use</h2>
+            <ol>
+                <li>Click "Copy Script" to copy the tool code</li>
+                <li>Open DevTools (F12) on any website</li>
+                <li>Paste into the console and press Enter</li>
+                <li>Follow the on-screen instructions</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
